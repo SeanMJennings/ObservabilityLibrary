@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>Observability.Testing</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Testing.Bdd" Version="1.0.3" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+        <PackageReference Include="Moq.Contrib.HttpClient" Version="1.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Logging.Serilog.AspNet\Logging.Serilog.AspNet.csproj" />
+      <ProjectReference Include="..\Logging.Serilog\Logging.Serilog.csproj" />
+      <ProjectReference Include="..\Logging.TestingUtilities\Logging.TestingUtilities.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="LoggerSteps.cs">
+        <DependentUpon>LoggerShould.cs</DependentUpon>
+      </Compile>
+      <Compile Update="SerilogSetupSteps.cs">
+        <DependentUpon>SerilogSetupShould.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+</Project>
