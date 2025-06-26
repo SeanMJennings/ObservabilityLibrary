@@ -12,7 +12,7 @@ SerilogApplicationInsightsLogger.ConfigureGlobalLoggingWithBuiltServices();
 This logger is then available to call anywhere in any application:
 
 ```
-Logging.Serilog.Logger.LogInformation("Message received");
+Logger.LogInformation("Message received");
 ```
 Logging is a cross-cutting concern. By removing inversion-of-control for this specific use case only, we no longer need to provide an `ILogger` dependency to every constructor in every class of our applications.
 
