@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Logging.Serilog.AspNet\Logging.Serilog.AspNet.csproj" />
+      <ProjectReference Include="..\Logging.Serilog.OpenTelemetry.AspNet\Logging.Serilog.OpenTelemetry.AspNet.csproj" />
       <ProjectReference Include="..\Logging.Serilog\Logging.Serilog.csproj" />
       <ProjectReference Include="..\Logging.TestingUtilities\Logging.TestingUtilities.csproj" />
     </ItemGroup>

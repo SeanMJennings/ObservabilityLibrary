@@ -1,7 +1,8 @@
 ﻿using BDD;
-using Logging.Serilog.Aspnet;
+using Logging.Serilog.OpenTelemetry.AspNet;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using Shouldly;
 
@@ -9,9 +10,9 @@ namespace Testing;
 
 public partial class SerilogSetupShould : Specification
 {
-    private WebApplicationBuilder webApplicationBuilder;
-    private WebApplication webApplication;
-    private Serilog.Core.Logger logger;
+    private WebApplicationBuilder webApplicationBuilder = null!;
+    private WebApplication webApplication = null!;
+    private Serilog.Core.Logger logger = null!;
     
     protected override void before_each()
     {
@@ -29,14 +30,15 @@ public partial class SerilogSetupShould : Specification
         logger = new LoggerConfiguration()
             .MinimumLevel.Information()
             .CreateLogger();
-        webApplicationBuilder.ConfigureSerilogLoggingApplicationInsightsForAspNet("wibble", "wobble");
+        webApplicationBuilder.ConfigureSerilogAndOpenTelemetry("wibble", "wobble");
         webApplication = webApplicationBuilder.Build();
-        webApplication.Services.ConfigureSerilogGlobally();
+        webApplication.UseSerilogForHttpRequestLogging();
+        webApplication.ConfigureSerilogGlobally();
     }
 
     private void serilog_is_configured_for_aspnet()
     {
         webApplication.Services.ShouldNotBeNull();
-        webApplication.Services.GetService<ILogger>().ShouldBeOfType<Serilog.Core.Logger>();
+        webApplication.Services.GetService<ILogger<Serilog.ILogger>>().ShouldBeOfType<Logger<Serilog.ILogger>>();
     }
 }

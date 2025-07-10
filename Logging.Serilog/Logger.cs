@@ -1,12 +1,11 @@
 ﻿using Alerting;
-using Serilog.Events;
-using SerilogILogger = Serilog.ILogger;
+using Microsoft.Extensions.Logging;
 
 public static class Logger
 {
-    private static SerilogILogger TheLogger = null!;
-        
-    public static void Configure(SerilogILogger logger)
+    private static ILogger<Serilog.ILogger> TheLogger = null!;
+
+    public static void Configure(ILogger<Serilog.ILogger> logger)
     {
         TheLogger = logger;
     }
@@ -18,28 +17,29 @@ public static class Logger
     public static void LogErrorThatWillNotTriggerAnAlert(string message, Exception exception, object? additionalInformation = null) => LogErrorAction(message, exception, AlertCode.Ignore, additionalInformation);
     public static void LogErrorThatWillTriggerAnAlert(string message, Exception exception, object? additionalInformation = null) => LogErrorAction(message, exception, AlertCode.Alert, additionalInformation);
 
-    public static async Task CloseAndFlush()
+    public static async Task WaitForFlush()
     {
-        ((IDisposable)TheLogger).Dispose();
         await Task.Delay(5000); //https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics#flushing-data
     } 
         
     internal static Action<string, object?> LogInformationAction = (message, additionalInformation) =>
     {
-        TheLogger.ForContext("AdditionalInformation", additionalInformation)
-            .Write(LogEventLevel.Information, message);
+        TheLogger.LogInformation(message, additionalInformation);
     };
         
     internal static Action<string, object?> LogWarningAction = (message, additionalInformation) =>
     {
-        TheLogger.ForContext("AdditionalInformation", additionalInformation)
-            .Write(LogEventLevel.Warning, message);
+        TheLogger.LogWarning(message, additionalInformation);
     };
         
     internal static Action<string, Exception, AlertCode,  object?> LogErrorAction = (message, exception, alertCode, additionalInformation) =>
     {
-        TheLogger.ForContext("AdditionalInformation", additionalInformation)
-            .ForContext("AlertCode", alertCode)
-            .Write(LogEventLevel.Error, exception, message);
+        using (TheLogger.BeginScope(new Dictionary<string, object>
+        {
+            { "AlertCode", alertCode },
+        }))
+        {
+            TheLogger.Log(LogLevel.Error, exception, message, additionalInformation);
+        }
     };
 }

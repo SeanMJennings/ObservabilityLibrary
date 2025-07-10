@@ -2,13 +2,14 @@
 using Moq;
 using Shouldly;
 using Logging.TestingUtilities;
+using Microsoft.Extensions.Logging;
 using SerilogILogger = Serilog.ILogger;
 
 namespace Testing;
 
 public partial class LoggerShould
 {
-    private Mock<SerilogILogger> MockLogger = null!;
+    private Mock<ILogger<SerilogILogger>> MockLogger = null!;
     private const string Message = "message";
     private const string WarningMessage = "message-warning";
     private MockException Exception = null!;
@@ -26,7 +27,7 @@ public partial class LoggerShould
         capturedMessage = null!;
         capturedAdditionalInformation = null!;
         capturedException = null!;
-        MockLogger = new Mock<SerilogILogger>();
+        MockLogger = new Mock<ILogger<SerilogILogger>>();
         AdditionalInformation = new { PropertyWeCareAbout = "wobble" };
         Exception = new MockException("exception");
         var logInformationAction = new Action<string, object?>((theMessage, theAdditionalInformation) =>
