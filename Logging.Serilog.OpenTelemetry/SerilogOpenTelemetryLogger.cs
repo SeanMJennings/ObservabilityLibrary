@@ -24,7 +24,7 @@ public static class SerilogOpenTelemetryLogger
     
     public static void ConfigureSerilog(string applicationName)
     {
-        TheLoggerFactory ??= LoggerFactory.Create(_ => {});
+        TheLoggerFactory ??= new LoggerFactory();
 
         var logger = new LoggerConfiguration()
             .MinimumLevel.Information()
