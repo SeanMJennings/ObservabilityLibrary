@@ -9,9 +9,9 @@ namespace Logging.Serilog.OpenTelemetry;
 public static class SerilogOpenTelemetryLogger
 {
     // Must be kept alive for the lifetime of the application
-    private static ILoggerFactory TheLoggerFactory = null!;
+    private static ILoggerFactory? TheLoggerFactory;
     
-    public static void ConfigureSerilogAndOpenTelemetry(string applicationName, string instrumentationKey)
+    public static void ConfigureOpenTelemetry(string applicationName, string instrumentationKey)
     {
         TheLoggerFactory = LoggerFactory.Create(builder =>
         {
@@ -20,6 +20,11 @@ public static class SerilogOpenTelemetryLogger
                 logging.AddAzureMonitorLogExporter(o => o.ConnectionString = instrumentationKey);
             });
         });
+    }      
+    
+    public static void ConfigureSerilog(string applicationName)
+    {
+        TheLoggerFactory ??= LoggerFactory.Create(_ => {});
 
         var logger = new LoggerConfiguration()
             .MinimumLevel.Information()

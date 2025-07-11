@@ -10,9 +10,13 @@ namespace Logging.Serilog.OpenTelemetry.AspNet;
 
 public static class SerilogOpenTelemetryLogger
 {
-    public static void ConfigureSerilogAndOpenTelemetry(this WebApplicationBuilder builder, string instrumentationKey, string applicationName)
+    public static void ConfigureOpenTelemetry(this WebApplicationBuilder builder, string instrumentationKey)
     {
         builder.Services.AddOpenTelemetry().UseAzureMonitor(m => m.ConnectionString = instrumentationKey);
+    }    
+    
+    public static void ConfigureSerilog(this WebApplicationBuilder builder, string applicationName)
+    {
         var logger = new LoggerConfiguration()
             .MinimumLevel.Information()
             .Enrich.WithProperty("Application", applicationName)

@@ -30,7 +30,7 @@ public partial class SerilogSetupShould : Specification
         logger = new LoggerConfiguration()
             .MinimumLevel.Information()
             .CreateLogger();
-        webApplicationBuilder.ConfigureSerilogAndOpenTelemetry("wibble", "wobble");
+        webApplicationBuilder.ConfigureSerilog("wobble");
         webApplication = webApplicationBuilder.Build();
         webApplication.UseSerilogForHttpRequestLogging();
         webApplication.ConfigureSerilogGlobally();
