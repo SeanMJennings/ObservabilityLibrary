@@ -11,13 +11,13 @@ public static class SerilogOpenTelemetryLogger
     // Must be kept alive for the lifetime of the application
     private static ILoggerFactory? TheLoggerFactory;
     
-    public static void ConfigureOpenTelemetry(string instrumentationKey)
+    public static void ConfigureOpenTelemetry(string connectionString)
     {
         TheLoggerFactory = LoggerFactory.Create(builder =>
         {
             builder.AddOpenTelemetry(logging =>
             {
-                logging.AddAzureMonitorLogExporter(o => o.ConnectionString = instrumentationKey);
+                logging.AddAzureMonitorLogExporter(o => o.ConnectionString = connectionString);
             });
         });
     }      
