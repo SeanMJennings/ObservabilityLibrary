@@ -11,7 +11,7 @@ public static class SerilogOpenTelemetryLogger
     // Must be kept alive for the lifetime of the application
     private static ILoggerFactory? TheLoggerFactory;
     
-    public static void ConfigureOpenTelemetry(string applicationName, string instrumentationKey)
+    public static void ConfigureOpenTelemetry(string instrumentationKey)
     {
         TheLoggerFactory = LoggerFactory.Create(builder =>
         {
