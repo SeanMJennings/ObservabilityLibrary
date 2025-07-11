@@ -25,6 +25,7 @@ public static class SerilogOpenTelemetryLogger
         
         builder.Logging.ClearProviders();
         builder.Logging.AddSerilog(logger, dispose: true);
+        builder.Host.UseSerilog(logger);
     }
 
     public static void ConfigureSerilogGlobally(this WebApplication webApplication)
