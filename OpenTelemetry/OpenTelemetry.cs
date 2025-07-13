@@ -2,9 +2,9 @@ using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.Extensions.Logging;
 using OpenTelemetry.Resources;
 
-namespace OpenTelemetry;
+namespace Observability.OpenTelemetry;
 
-public static class OpenTelemetry
+public static class OpenTelemetrySetup
 {
     // Must be kept alive for the lifetime of the application
     private static ILoggerFactory? TheLoggerFactory;

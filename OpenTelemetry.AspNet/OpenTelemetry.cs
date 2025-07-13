@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OpenTelemetry.Resources;
 
-namespace OpenTelemetry.AspNet;
+namespace Observability.OpenTelemetry.AspNet;
 
-public static class OpenTelemetry
+public static class OpenTelemetrySetup
 {
     public static void ConfigureOpenTelemetry(this WebApplicationBuilder builder, string connectionString, string applicationName)
     {

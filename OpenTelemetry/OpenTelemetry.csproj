@@ -5,7 +5,7 @@
         <PackageId>Observability.OpenTelemetry</PackageId>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>OpenTelemetry</RootNamespace>
+        <RootNamespace>Observability.OpenTelemetry</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

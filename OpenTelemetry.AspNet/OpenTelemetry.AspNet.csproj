@@ -5,7 +5,7 @@
         <PackageId>Observability.OpenTelemetry.AspNet</PackageId>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>OpenTelemetry.AspNet</RootNamespace>
+        <RootNamespace>Observability.OpenTelemetry.AspNet</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
