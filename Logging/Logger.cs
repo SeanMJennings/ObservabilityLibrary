@@ -3,9 +3,9 @@ using Microsoft.Extensions.Logging;
 
 public static class Logger
 {
-    private static ILogger<Serilog.ILogger> TheLogger = null!;
+    private static ILogger TheLogger = null!;
 
-    public static void Configure(ILogger<Serilog.ILogger> logger)
+    public static void Configure(ILogger logger)
     {
         TheLogger = logger;
     }

@@ -2,22 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
-        <PackageId>Observability.Logging.Serilog.OpenTelemetry.AspNet</PackageId>
+        <PackageId>Observability.OpenTelemetry.AspNet</PackageId>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Logging.Serilog.OpenTelemetry.AspNet</RootNamespace>
+        <RootNamespace>OpenTelemetry.AspNet</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.3.0" />
         <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
         <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
-        <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
-        <PackageReference Include="Serilog.Sinks.OpenTelemetry" Version="4.2.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Logging.Serilog\Logging.Serilog.csproj" />
+        <ProjectReference Include="..\Logging\Logging.csproj" />
     </ItemGroup>
 
 </Project>

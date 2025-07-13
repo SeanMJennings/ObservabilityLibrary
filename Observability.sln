@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Serilog", "Logging.Serilog\Logging.Serilog.csproj", "{6C228E81-1A99-4502-A2E0-0D4B09663D26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{6C228E81-1A99-4502-A2E0-0D4B09663D26}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{67246384-F6FE-445D-9717-FE8AC07A541C}"
 EndProject
@@ -14,11 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{D5
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Serilog.OpenTelemetry", "Logging.Serilog.OpenTelemetry\Logging.Serilog.OpenTelemetry.csproj", "{537B4676-F4BD-406E-BFF2-DF6C89F19DCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry", "OpenTelemetry\OpenTelemetry.csproj", "{537B4676-F4BD-406E-BFF2-DF6C89F19DCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alerting", "Alerting\Alerting.csproj", "{7EEE49EB-81C7-48B4-B184-6062869DBBF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Serilog.OpenTelemetry.AspNet", "Logging.Serilog.OpenTelemetry.AspNet\Logging.Serilog.OpenTelemetry.AspNet.csproj", "{391706E6-E642-46D2-861D-8DFE6C4343B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.AspNet", "OpenTelemetry.AspNet\OpenTelemetry.AspNet.csproj", "{391706E6-E642-46D2-861D-8DFE6C4343B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
