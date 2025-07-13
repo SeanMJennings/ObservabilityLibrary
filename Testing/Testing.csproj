@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OpenTelemetry.AspNet\OpenTelemetry.AspNet.csproj" />
+      <ProjectReference Include="..\OpenTelemetryObservability.AspNet\OpenTelemetryObservability.AspNet.csproj" />
       <ProjectReference Include="..\Logging\Logging.csproj" />
       <ProjectReference Include="..\Logging.TestingUtilities\Logging.TestingUtilities.csproj" />
     </ItemGroup>

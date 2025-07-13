@@ -14,11 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{D5
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry", "OpenTelemetry\OpenTelemetry.csproj", "{537B4676-F4BD-406E-BFF2-DF6C89F19DCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetryObservability", "OpenTelemetryObservability\OpenTelemetryObservability.csproj", "{537B4676-F4BD-406E-BFF2-DF6C89F19DCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alerting", "Alerting\Alerting.csproj", "{7EEE49EB-81C7-48B4-B184-6062869DBBF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.AspNet", "OpenTelemetry.AspNet\OpenTelemetry.AspNet.csproj", "{391706E6-E642-46D2-861D-8DFE6C4343B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetryObservability.AspNet", "OpenTelemetryObservability.AspNet\OpenTelemetryObservability.AspNet.csproj", "{391706E6-E642-46D2-861D-8DFE6C4343B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
