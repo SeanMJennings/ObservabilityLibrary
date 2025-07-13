@@ -23,7 +23,7 @@ public static class OpenTelemetrySetup
 
     public static void ConfigureGlobalLogger(this WebApplication webApplication)
     {
-        var logger = webApplication.Services.GetService<ILogger>();
+        var logger = webApplication.Logger;
         if (logger is null) throw new ApplicationException("Logger has not been registered");
         Logger.Configure(logger);
     }
