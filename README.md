@@ -7,7 +7,7 @@ This means the ability to log whenever we need, and the ability to monitor depen
 
 This repository provides a global static logger that should be configured once on startup in any application that uses this library:
 ```
-SerilogApplicationInsightsLogger.ConfigureGlobalLoggingWithBuiltServices();
+OpenTelemetry.ConfigureOpenTelemetry();
 ```
 This logger is then available to call anywhere in any application:
 
