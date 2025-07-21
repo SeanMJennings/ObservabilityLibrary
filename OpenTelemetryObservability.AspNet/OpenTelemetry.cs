@@ -2,15 +2,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OpenTelemetry;
 using OpenTelemetry.Resources;
 
 namespace Observability.OpenTelemetry.AspNet;
 
 public static class OpenTelemetrySetup
 {
-    public static void ConfigureOpenTelemetry(this WebApplicationBuilder builder, string connectionString, string applicationName)
+    public static OpenTelemetryBuilder ConfigureOpenTelemetry(this WebApplicationBuilder builder, string applicationName)
     {
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(m => m.ConnectionString = connectionString);
         builder.Logging.ClearProviders();
         builder.Logging.AddOpenTelemetry(opt =>
         {
@@ -19,7 +19,13 @@ public static class OpenTelemetrySetup
             opt.ParseStateValues = true;
             opt.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(applicationName)); // Match the trace service name
         });
-    }    
+        return builder.Services.AddOpenTelemetry();
+    }
+
+    public static OpenTelemetryBuilder UseAzureMonitor(this OpenTelemetryBuilder builder, string connectionString)
+    {
+        return builder.UseAzureMonitor(m => m.ConnectionString = connectionString);
+    }
 
     public static void ConfigureGlobalLogger(this WebApplication webApplication)
     {
