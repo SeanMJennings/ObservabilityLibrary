@@ -12,6 +12,7 @@ public static class OpenTelemetrySetup
     public static OpenTelemetryBuilder ConfigureOpenTelemetry(this WebApplicationBuilder builder, string applicationName)
     {
         builder.Logging.ClearProviders();
+        builder.Logging.AddConsole();
         builder.Logging.AddOpenTelemetry(opt =>
         {
             opt.IncludeFormattedMessage = true;
@@ -19,6 +20,7 @@ public static class OpenTelemetrySetup
             opt.ParseStateValues = true;
             opt.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(applicationName)); // Match the trace service name
         });
+        
         return builder.Services.AddOpenTelemetry();
     }
 
