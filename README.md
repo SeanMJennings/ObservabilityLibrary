@@ -1,6 +1,6 @@
 # Observability
 
-Dotnet packages for observability.
+Observability libraries for dotnet.
 
 Observability means we can understand what is happening in our distributed systems.
 This means the ability to log whenever we need, and the ability to monitor dependencies and raise alerts if needed.
