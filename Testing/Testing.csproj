@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AssemblyName>Observability.Testing</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Testing.Bdd" Version="1.0.3" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+        <PackageReference Include="Testing.Bdd" Version="1.0.11" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+        <PackageReference Include="NUnit3TestAdapter" Version="6.1.0" />
         <PackageReference Include="Moq.Contrib.HttpClient" Version="1.4.0" />
     </ItemGroup>
 
